@@ -1,17 +1,9 @@
 ## ◇────── Hamshahri SSH PANEL ───────◇
 
-
-##
-___REFERRAL LINK___
-
-[![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=0c8d9b763684&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
-
-## ㅤ
-
 ___Update System Packages and Install SCRIPT___
 
 ```
-apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/januda-ui/DRAGON-VPS-MANAGER/main/hehe; chmod 777 hehe;./hehe
+apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/smaghili/SSH-Panel/main/hehe; chmod 777 hehe;./hehe
 
 ```
 
