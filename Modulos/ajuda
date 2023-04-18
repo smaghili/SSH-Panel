@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-echo -e "                              \033[1;31mByㅤ🐉ㅤDRAGON VPS MANAGERㅤ🐉ㅤ\033[1;36m"
+echo -e "                              \033[1;31mByㅤ🐉ㅤHamshari SSH Panelㅤ🐉ㅤ\033[1;36m"
 echo "   ㅤ🐉ㅤDRAGON VPS MANAGERㅤ🐉ㅤ" | figlet
 echo -e "\033[1;32m      MENU INFORMATION AND OPTIONS \033[0m\n\n"
 echo -e " \033[1;37m[\033[1;31m01\033[1;37m] - \033[1;33m Create ssh user"
