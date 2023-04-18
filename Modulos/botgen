@@ -1,7 +1,7 @@
 #!/bin/bash
 [[ $(screen -list| grep -c 'bot_gen') == '0' ]] && {
     clear
-    echo -e "\E[44;1;37m     ㅤ🐉ㅤDRAGON VPS MANAGER TELE BOT ACTIVATIONㅤ🐉ㅤ     \E[0m"
+    echo -e "\E[44;1;37m     ㅤ🐉ㅤHamshahri SSH Panel TELE BOT ACTIVATIONㅤ🐉ㅤ     \E[0m"
     echo ""
     echo -ne "\033[1;32m◇ INFORM YOUR BOT TOKEN FROM @BotFather\033[1;37m: "; read token
     echo ""
