@@ -1261,10 +1261,10 @@ restaure_backup() {
 }
 msg_bem_vindo() {
     local msg
-    msg="👋 Hello ${message_from_first_name[$id]} ! \n\n🤝 Welcome to\n"
+    msg="👋 سلام ${message_from_first_name[$id]} ! \n\n🤝 به پنل مدیریت کاربران خوش آمدید\n"
     msg+="<b>====================================</b>\n<b>               🐉 Hamshahri SSH Panel 🐉   </b>\n<b>====================================</b>\n\n"
-    msg+="<b>To access the menu</b>\n<b>click [ /menu ]</b>\n\n"
-    msg+="<b>For information</b>\n<b>click [ /help ]</b>\n\n ✅ All Tutorials , Updates : @DRAGON_VPS_MANAGER"
+    msg+="<b>منوی اصلی</b>\n<b> [ /menu ]</b>\n\n"
+    msg+="<b>راهنمای پنل</b>\n<b> [ /help ]</b>\n\n ✅ تمامی بروز رسانی های پنل: @HamshahriSSHPanel"
     ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
         --text "$(echo -e $msg)" \
         --parse_mode html
