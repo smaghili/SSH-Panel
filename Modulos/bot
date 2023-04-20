@@ -1934,7 +1934,7 @@ while :; do
                         --text 'Senha:' \
                         --reply_markup "$(ShellBot.ForceReply)" # Força a resposta.
                     ;;
-                'Senha:')
+                'Password:')
                     sizepass=$(echo -e ${#message_text[$id]})
                     verifica_acesso
                     [[ "$_erro" == '1' ]] && break
