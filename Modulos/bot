@@ -443,7 +443,7 @@ ver_users() {
         info_users+='<b>USER INFORMATION</b>\n'
         info_users+='◈──────────────────◈\n\n'
         info_users+='⚠️ Displays in the format below:\n\n'
-        info_users+='<code>USER PASSWORD DATE LIMIT</code>\n'
+        info_users+='<code>USER PASSWORD LIMIT DATE</code>\n'
         ShellBot.sendMessage --chat_id $id_admin \
             --text "$(echo -e $info_users)" \
             --parse_mode html
@@ -495,7 +495,7 @@ ver_users() {
         info_users+='<b>USER INFORMATION</b>\n'
         info_users+='◈──────────────────◈\n\n'
         info_users+='⚠️ Displays in the format below:\n\n'
-        info_users+='<code>USER PASSWORD DATE LIMIT</code>\n'
+        info_users+='<code>USER PASSWORD LIMIT DATE</code>\n'
         ShellBot.sendMessage --chat_id ${callback_query_message_chat_id[$id]} \
             --text "$(echo -e $info_users)" \
             --parse_mode html
@@ -977,7 +977,7 @@ fun_teste() {
         return 0
     } || {
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-            --text "$(echo -e "<b>====================================</b>\n<b>               🐉 Hamshahri SSH Panel 🐉   </b>\n<b>====================================</b>\n\n<b>◈─────⪧ IMPORTANT ⪦──────◈</b>\n\n◈⪧ 🚫 NO SPAM\n◈⪧ ⚠️ NO DDOS\n◈⪧ 🎭 NO Hacking\n◈⪧ ⛔️ NO Carding\n◈⪧ 🙅‍♂️ NO Torrent\n◈⪧ ❌ NO MultiLogin\n◈⪧ 🤷‍♂️ NO Illegal Activities\n\n<b>◈────⪧TEST SSH ACCOUNT ⪦────◈</b>\n\n<b>◈ Host / IP       :⪧</b>  <code>$(cat /etc/IP)</code>\n<b>◈ Username    :⪧</b>  <code>$usuario</code>\n<b>◈ Password     :⪧</b> <code>1234</code>\n<b>◈ Expire at       :⪧</b> $t_time $hrs / Hours \n\n<b>◈──────⪧ PORTS ⪦ ───────◈</b>\n\n◈ SSH            ⌁   2668,2669\n◈ SSL             ⌁  443\n◈ DropBear ⌁  2670,110\n◈ BadVPN    ⌁  7300\n\n<b>◈───⪧ONLINE USER COUNT⪦────◈ </b>\n\nhttp://$(cat /etc/IP):8888/server/online\n\n<b>◈──────────────────◈</b>\n\n<b>©️ 🐉  Hamshahri SSH Panel SCRIPT  🐉</b>\n<b>◈──────────────────◈</b>")" \
+            --text "$(echo -e "<b>====================================</b>\n<b>               🐉 Hamshahri SSH Panel 🐉   </b>\n<b>====================================</b>\n\n<b>◈─────⪧ IMPORTANT ⪦──────◈</b>\n\n◈⪧ 🚫 NO SPAM\n◈⪧ ⚠️ NO DDOS\n◈⪧ 🎭 NO Hacking\n◈⪧ ⛔️ NO Carding\n◈⪧ 🙅‍♂️ NO Torrent\n◈⪧ ❌ NO MultiLogin\n◈⪧ 🤷‍♂️ NO Illegal Activities\n\n<b>◈────⪧TEST SSH ACCOUNT ⪦────◈</b>\n\n<b>◈ Host / IP       :⪧</b>  <code>ssh.ir3game.ga</code>\n<b>◈ Username    :⪧</b>  <code>$usuario</code>\n<b>◈ Password     :⪧</b> <code>1234</code>\n<b>◈ Expire at       :⪧</b> $t_time $hrs / Hours \n\n<b>◈──────⪧ PORTS ⪦ ───────◈</b>\n\n◈ SSH            ⌁   2668,2669\n◈ SSL             ⌁  443\n◈ DropBear ⌁  2670,110\n◈ BadVPN    ⌁  7300\n\n<b>◈───⪧ONLINE USER COUNT⪦────◈ </b>\n\nhttp://$(cat /etc/IP):8888/server/online\n\n<b>◈──────────────────◈</b>\n\n<b>©️ 🐉  Hamshahri SSH Panel SCRIPT  🐉</b>\n<b>◈──────────────────◈</b>")" \
             --parse_mode html
         return 0
     }
@@ -1931,10 +1931,10 @@ while :; do
                     }
                     echo "Nome: ${message_text[$id]}" >$CAD_ARQ
                     ShellBot.sendMessage --chat_id ${message_from_id[$id]} \
-                        --text 'Senha:' \
+                        --text 'Password:' \
                         --reply_markup "$(ShellBot.ForceReply)" # Força a resposta.
                     ;;
-                'Senha:')
+                'Password:')
                     sizepass=$(echo -e ${#message_text[$id]})
                     verifica_acesso
                     [[ "$_erro" == '1' ]] && break
@@ -1945,7 +1945,7 @@ while :; do
                         >$CAD_ARQ
                         break
                     }
-                    echo "Senha: ${message_text[$id]}" >>$CAD_ARQ
+                    echo "Password: ${message_text[$id]}" >>$CAD_ARQ
                     # Próximo campo.
                     ShellBot.sendMessage --chat_id ${message_from_id[$id]} \
                         --text 'Limite:' \
@@ -2007,7 +2007,7 @@ while :; do
                             --reply_markup "$(ShellBot.ForceReply)"
                     } || {
                         ShellBot.sendMessage --chat_id ${message_from_id[$id]} \
-                            --text "<b>====================================</b>\n<b>               🐉 Hamshahri SSH Panel 🐉   </b>\n<b>====================================</b>\n\n<b>◈─────⪧ IMPORTANT ⪦──────◈</b>\n\n◈⪧ 🚫 NO SPAM\n◈⪧ ⚠️ NO DDOS\n◈⪧ 🎭 NO Hacking\n◈⪧ ⛔️ NO Carding\n◈⪧ 🙅‍♂️ NO Torrent\n◈⪧ ❌ NO MultiLogin\n◈⪧ 🤷‍♂️ NO Illegal Activities\n\n<b>◈─────⪧ SSH ACCOUNT ⪦─────◈</b>\n\n<b>◈ Host / IP       :⪧</b>  <code>$(cat /etc/IP)</code>\n<b>◈ Username    :⪧</b>  <code>$(awk -F " " '/Nome/ {print $2}' $CAD_ARQ)</code>\n<b>◈ Password     :⪧</b>  <code>$(awk -F " " '/Senha/ {print $2}' $CAD_ARQ)</code>\n<b>◈ Login Limit   :⪧</b> $(awk -F " " '/Limite/ {print $2}' $CAD_ARQ)\n<b>◈ Expire Date  :⪧</b> $(awk -F " " '/Validade/ {print $2}' $CAD_ARQ)\n\n<b>◈──────⪧ PORTS ⪦ ───────◈</b>\n\n◈ SSH            ⌁   2668,2669\n◈ SSL             ⌁  443\n◈ DropBear ⌁  2670,110\n◈ BadVPN    ⌁  7300\n\n<b>◈───⪧ONLINE USER COUNT⪦────◈ </b>\n\nhttp://$(cat /etc/IP):8888/server/online\n\n<b>◈──────────────────◈</b>\n\n<b>©️ 🐉  Hamshahri SSH Panel SCRIPT  🐉</b>\n<b>◈──────────────────◈</b>" \
+                            --text "<b>====================================</b>\n<b>               🐉 Hamshahri SSH Panel 🐉   </b>\n<b>====================================</b>\n\n<b>◈─────⪧ IMPORTANT ⪦──────◈</b>\n\n◈⪧ 🚫 NO SPAM\n◈⪧ ⚠️ NO DDOS\n◈⪧ 🎭 NO Hacking\n◈⪧ ⛔️ NO Carding\n◈⪧ 🙅‍♂️ NO Torrent\n◈⪧ ❌ NO MultiLogin\n◈⪧ 🤷‍♂️ NO Illegal Activities\n\n<b>◈─────⪧ SSH ACCOUNT ⪦─────◈</b>\n\n<b>◈ Host / IP       :⪧</b>  <code>ssh.ir3game.ga</code>\n<b>◈ Username    :⪧</b>  <code>$(awk -F " " '/Nome/ {print $2}' $CAD_ARQ)</code>\n<b>◈ Password     :⪧</b>  <code>$(awk -F " " '/Senha/ {print $2}' $CAD_ARQ)</code>\n<b>◈ Login Limit   :⪧</b> $(awk -F " " '/Limite/ {print $2}' $CAD_ARQ)\n<b>◈ Expire Date  :⪧</b> $(awk -F " " '/Validade/ {print $2}' $CAD_ARQ)\n\n<b>◈──────⪧ PORTS ⪦ ───────◈</b>\n\n◈ SSH            ⌁   2668,2669\n◈ SSL             ⌁  443\n◈ DropBear ⌁  2670,110\n◈ BadVPN    ⌁  7300\n\n<b>◈───⪧ONLINE USER COUNT⪦────◈ </b>\n\nhttp://$(cat /etc/IP):8888/server/online\n\n<b>◈──────────────────◈</b>\n\n<b>©️ 🐉  Hamshahri SSH Panel SCRIPT  🐉</b>\n<b>◈──────────────────◈</b>" \
                             --parse_mode html
                         break
                     }
@@ -2020,7 +2020,7 @@ while :; do
                             --text "$(echo -e "❌ Invalid option ❌\n\n⚠️ use only letters [EX: Yes or No]")" \
                             --parse_mode html
                         ShellBot.sendMessage --chat_id ${message_from_id[$id]} \
-                            --text "<b>====================================</b>\n<b>               🐉 Hamshahri SSH Panel 🐉   </b>\n<b>====================================</b>\n\n<b>◈─────⪧ IMPORTANT ⪦──────◈</b>\n\n◈⪧ 🚫 NO SPAM\n◈⪧ ⚠️ NO DDOS\n◈⪧ 🎭 NO Hacking\n◈⪧ ⛔️ NO Carding\n◈⪧ 🙅‍♂️ NO Torrent\n◈⪧ ❌ NO MultiLogin\n◈⪧ 🤷‍♂️ NO Illegal Activities\n\n<b>◈─────⪧ SSH ACCOUNT ⪦─────◈</b>\n\n<b>◈ Host / IP       :⪧</b>  <code>$(cat /etc/IP)</code>\n<b>◈ Username    :⪧</b>  <code>$(awk -F " " '/Nome/ {print $2}' $CAD_ARQ)</code>\n<b>◈ Password     :⪧</b>  <code>$(awk -F " " '/Senha/ {print $2}' $CAD_ARQ)</code>\n<b>◈ Login Limit   :⪧</b> $(awk -F " " '/Limite/ {print $2}' $CAD_ARQ)\n<b>◈ Expire Date  :⪧</b> $(awk -F " " '/Validade/ {print $2}' $CAD_ARQ)\n\n<b>◈──────⪧ PORTS ⪦ ───────◈</b>\n\n◈ SSH            ⌁   2668,2669\n◈ SSL             ⌁  443\n◈ DropBear ⌁  2670,110\n◈ BadVPN    ⌁  7300\n\n<b>◈───⪧ONLINE USER COUNT⪦────◈ </b>\n\nhttp://$(cat /etc/IP):8888/server/online\n\n<b>◈──────────────────◈</b>\n\n<b>©️ 🐉  Hamshahri SSH Panel SCRIPT  🐉</b>\n<b>◈──────────────────◈</b>" \
+                            --text "<b>====================================</b>\n<b>               🐉 Hamshahri SSH Panel 🐉   </b>\n<b>====================================</b>\n\n<b>◈─────⪧ IMPORTANT ⪦──────◈</b>\n\n◈⪧ 🚫 NO SPAM\n◈⪧ ⚠️ NO DDOS\n◈⪧ 🎭 NO Hacking\n◈⪧ ⛔️ NO Carding\n◈⪧ 🙅‍♂️ NO Torrent\n◈⪧ ❌ NO MultiLogin\n◈⪧ 🤷‍♂️ NO Illegal Activities\n\n<b>◈─────⪧ SSH ACCOUNT ⪦─────◈</b>\n\n<b>◈ Host / IP       :⪧</b>  <code>ssh.ir3game.ga</code>\n<b>◈ Username    :⪧</b>  <code>$(awk -F " " '/Nome/ {print $2}' $CAD_ARQ)</code>\n<b>◈ Password     :⪧</b>  <code>$(awk -F " " '/Senha/ {print $2}' $CAD_ARQ)</code>\n<b>◈ Login Limit   :⪧</b> $(awk -F " " '/Limite/ {print $2}' $CAD_ARQ)\n<b>◈ Expire Date  :⪧</b> $(awk -F " " '/Validade/ {print $2}' $CAD_ARQ)\n\n<b>◈──────⪧ PORTS ⪦ ───────◈</b>\n\n◈ SSH            ⌁   2668,2669\n◈ SSL             ⌁  443\n◈ DropBear ⌁  2670,110\n◈ BadVPN    ⌁  7300\n\n<b>◈───⪧ONLINE USER COUNT⪦────◈ </b>\n\nhttp://$(cat /etc/IP):8888/server/online\n\n<b>◈──────────────────◈</b>\n\n<b>©️ 🐉  Hamshahri SSH Panel SCRIPT  🐉</b>\n<b>◈──────────────────◈</b>" \
                             --parse_mode html
                         break
                     }
