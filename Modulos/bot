@@ -177,11 +177,6 @@ verifica_acesso() {
 }
 
 fun_adduser() {
-    [[ "$(grep -wc ${callback_query_from_username} $suspensos)" != '10' ]] && {
-        ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
-            --text "⚠️ YOU ARE SUSPENDED! CONTACT THE ADMINISTRATOR"
-        return 0
-    }
     [[ "${callback_query_from_id[$id]}" == "$id_admin" ]] || [[ "$(grep -wc ${callback_query_from_username} $ativos)" != '0' ]] && {
         ShellBot.sendMessage --chat_id ${callback_query_message_chat_id[$id]} \
             --text "👤 CREATE USER 👤\n\nUsername:" \
@@ -236,11 +231,6 @@ criar_user() {
 }
 
 fun_deluser() {
-    [[ "$(grep -wc ${callback_query_from_username} $suspensos)" != '10' ]] && {
-        ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
-            --text "⚠️ YOU ARE SUSPENDED! CONTACT THE ADMINISTRATOR"
-        return 0
-    }
     [[ "${callback_query_from_id[$id]}" == "$id_admin" ]] || [[ "$(grep -wc ${callback_query_from_username} $ativos)" != '0' ]] && {
         ShellBot.sendMessage --chat_id ${callback_query_message_chat_id[$id]} \
             --text "🗑 REMOVE USER 🗑\n\nUsername:" \
@@ -295,11 +285,6 @@ fun_del_user() {
 }
 
 alterar_senha() {
-    [[ "$(grep -wc ${callback_query_from_username} $suspensos)" != '10' ]] && {
-        ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
-            --text "⚠️ YOU ARE SUSPENDED! CONTACT THE ADMINISTRATOR"
-        return 0
-    }
     [[ "${callback_query_from_id[$id]}" == "$id_admin" ]] || [[ "$(grep -wc ${callback_query_from_username} $ativos)" != '0' ]] && {
         ShellBot.sendMessage --chat_id ${callback_query_message_chat_id[$id]} \
             --text "🔐 Change Password 🔐\n\nUsername:" \
@@ -325,11 +310,6 @@ alterar_senha_user() {
 }
 
 alterar_limite() {
-    [[ "$(grep -wc ${callback_query_from_username} $suspensos)" != '10' ]] && {
-        ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
-            --text "⚠️ YOU ARE SUSPENDED! CONTACT THE ADMINISTRATOR"
-        return 0
-    }
     [[ "${callback_query_from_id[$id]}" == "$id_admin" ]] || [[ "$(grep -wc ${callback_query_from_username} $ativos)" != '0' ]] && {
         ShellBot.sendMessage --chat_id ${callback_query_message_chat_id[$id]} \
             --text "👥 Change Limit 👥\n\nUsername:" \
@@ -389,11 +369,6 @@ alterar_limite_user() {
 }
 
 alterar_data() {
-    [[ "$(grep -wc ${callback_query_from_username} $suspensos)" != '10' ]] && {
-        ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
-            --text "⚠️ YOU ARE SUSPENDED! CONTACT THE ADMINISTRATOR"
-        return 0
-    }
     [[ "${callback_query_from_id[$id]}" == "$id_admin" ]] || [[ "$(grep -wc ${callback_query_from_username} $ativos)" != '0' ]] && {
         ShellBot.sendMessage --chat_id ${callback_query_message_chat_id[$id]} \
             --text "⏳ Change Date ⏳\n\nUsername:" \
@@ -479,11 +454,6 @@ ver_users() {
             [[ $(cat $arq_info | wc -l) = '0' ]] && rm $arq_info && break
         done
     elif [[ "$(grep -wc "${callback_query_from_username}" $ativos)" != '0' ]]; then
-        [[ "$(grep -wc ${callback_query_from_username} $suspensos)" != '10' ]] && {
-            ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
-                --text "⚠️YOU ARE SUSPENDED! CONTACT THE ADMINISTRATOR"
-            return 0
-        }
         [[ $(ls /etc/bot/revenda/${callback_query_from_username}/usuarios | wc -l) == '0' ]] && {
             ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
                 --text "YOU HASN'T CREATED USER YET!"
@@ -616,11 +586,6 @@ monitor_ssh() {
             return 0
         }
     elif [[ "$(grep -wc "${callback_query_from_username}" $ativos)" != '0' ]]; then
-        [[ "$(grep -wc ${callback_query_from_username} $suspensos)" != '10' ]] && {
-            ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
-                --text "⚠️ YOU ARE SUSPENDED! CONTACT THE ADMINISTRATOR"
-            return 0
-        }
         [[ $(ls /etc/bot/revenda/${callback_query_from_username}/usuarios | wc -l) == '0' ]] && {
             ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
                 --text "YOU HASN'T CREATED USER YET!"
@@ -901,11 +866,7 @@ sobremim() {
 }
 
 fun_add_teste() {
-    if [[ "$(grep -wc ${callback_query_from_username} $suspensos)" != '10' ]]; then
-        ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
-            --text "⚠️ YOU ARE SUSPENDED! CONTACT THE ADMINISTRATOR"
-        return 0
-    elif [[ "${callback_query_from_id[$id]}" == "$id_admin" ]]; then
+    if [[ "${callback_query_from_id[$id]}" == "$id_admin" ]]; then
         ShellBot.sendMessage --chat_id ${callback_query_message_chat_id[$id]} \
             --text "👤 CREATE TEST 👤\n\nhow many hours should it last EX: 1:" \
             --reply_markup "$(ShellBot.ForceReply)"
@@ -1014,11 +975,6 @@ fun_exp_user() {
             --text "⌛️ EXPIRED SSH USERS REMOVED"
         return 0
     elif [[ "$(grep -wc "${callback_query_from_username}" $ativos)" != '0' ]]; then
-        [[ "$(grep -wc ${callback_query_from_username} $suspensos)" != '10' ]] && {
-            ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
-                --text "⚠️ YOU ARE SUSPENDED! CONTACT THE ADMINISTRATOR"
-            return 0
-        }
         [[ $(ls /etc/bot/revenda/${callback_query_from_username}/usuarios | wc -l) == '0' ]] && {
             ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
                 --text "YOU HASN'T CREATED USER YET!"
@@ -1117,11 +1073,6 @@ relatorio_rev() {
             --parse_mode html
         return 0
     elif [[ "$(grep -wc ${callback_query_from_username} $ativos)" != '0' ]]; then
-        [[ "$(grep -wc ${callback_query_from_username} $suspensos)" != '10' ]] && {
-            ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
-                --text "⚠️ YOU ARE SUSPENDED! CONTACT THE ADMINISTRATOR"
-            return 0
-        }
         [[ $(grep -wc 'SUBREVENDA' /etc/bot/revenda/${callback_query_from_username}/${callback_query_from_username}) == '0' ]] && {
             ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
                 --text "⚠️ NO SUB DEALER FOUND !"
@@ -1308,11 +1259,6 @@ fun_verif_limite_rev() {
 }
 
 fun_add_revenda() {
-    [[ "$(grep -wc ${callback_query_from_username} $suspensos)" != '10' ]] && {
-        ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
-            --text "⚠️ YOU ARE SUSPENDED! CONTACT THE ADMINISTRATOR"
-        return 0
-    }
     [[ "${callback_query_from_id[$id]}" == "$id_admin" ]] || [[ "$(grep -wc ${callback_query_from_username} $ativos)" != '0' ]] && {
         ShellBot.sendMessage --chat_id ${callback_query_message_chat_id[$id]} \
             --text "👥 ADD DEALER 👥\n\nEnter the name:" \
@@ -1352,11 +1298,6 @@ criar_rev() {
 }
 
 fun_del_rev() {
-    [[ "$(grep -wc ${callback_query_from_username} $suspensos)" != '10' ]] && {
-        ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
-            --text "⚠️ YOU ARE SUSPENDED! CONTACT THE ADMINISTRATOR"
-        return 0
-    }
     [[ "${callback_query_from_id[$id]}" == "$id_admin" ]] || [[ "$(grep -wc ${callback_query_from_username} $ativos)" != '0' ]] && {
         ShellBot.sendMessage --chat_id ${callback_query_message_chat_id[$id]} \
             --text "🗑 REMOVE DEALER 🗑\n\nInform his username [Ex: @Dragon_vps_manager]:" \
@@ -1470,11 +1411,6 @@ del_rev() {
 }
 
 fun_lim_rev() {
-    [[ "$(grep -wc ${callback_query_from_username} $suspensos)" != '10' ]] && {
-        ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
-            --text "⚠️ YOU ARE SUSPENDED! CONTACT THE ADMINISTRATOR"
-        return 0
-    }
     [[ "${callback_query_from_id[$id]}" == "$id_admin" ]] || [[ "$(grep -wc ${callback_query_from_username} $ativos)" != '0' ]] && {
         ShellBot.sendMessage --chat_id ${callback_query_message_chat_id[$id]} \
             --text "♾ CHANGE RESALE LIMIT ♾\n\nInform his username [Ex: @Dragon_vps_manager]:" \
@@ -1516,11 +1452,6 @@ lim_rev() {
 }
 
 fun_dat_rev() {
-    [[ "$(grep -wc ${callback_query_from_username} $suspensos)" != '10' ]] && {
-        ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
-            --text "⚠️ YOU ARE SUSPENDED! CONTACT THE ADMINISTRATOR"
-        return 0
-    }
     [[ "${callback_query_from_id[$id]}" == "$id_admin" ]] || [[ "$(grep -wc ${callback_query_from_username} $ativos)" != '0' ]] && {
         ShellBot.sendMessage --chat_id ${callback_query_message_chat_id[$id]} \
             --text "📆 CHANGE RESALE DATE 📆\n\nInform his username [Ex: @Dragon_vps_manager]:" \
@@ -1578,11 +1509,6 @@ dat_rev() {
 }
 
 fun_list_rev() {
-    [[ "$(grep -wc ${callback_query_from_username} $suspensos)" != '10' ]] && {
-        ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
-            --text "⚠️ YOU ARE SUSPENDED! CONTACT THE ADMINISTRATOR"
-        return 0
-    }
     if [[ "${callback_query_from_id[$id]}" == "$id_admin" ]]; then
         local msg1
         msg1="◈──────────────────◈\n📃 RESELLERS LIST !\n◈──────────────────◈\n"
@@ -1628,11 +1554,6 @@ fun_list_rev() {
 }
 
 fun_susp_rev() {
-    [[ "$(grep -wc ${callback_query_from_username} $suspensos)" != '10' ]] && {
-        ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
-            --text "⚠️ YOU ARE SUSPENDED! CONTACT THE ADMINISTRATOR"
-        return 0
-    }
     [[ "${callback_query_from_id[$id]}" == "$id_admin" ]] || [[ "$(grep -wc ${callback_query_from_username} $ativos)" != '0' ]] && {
         ShellBot.sendMessage --chat_id ${callback_query_message_chat_id[$id]} \
             --text "🔒 SUSPEND DEALER 🔒\n\nInform his username [Ex: @Dragon_vps_manager]:" \
@@ -1733,11 +1654,6 @@ infouserbot() {
 }
 
 fun_menurevenda() {
-    [[ "$(grep -wc ${callback_query_from_username} $suspensos)" != '10' ]] && {
-        ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
-            --text "⚠️ YOU ARE SUSPENDED! CONTACT THE ADMINISTRATOR"
-        return 0
-    }
     [[ "${callback_query_from_id[$id]}" == "$id_admin" ]] || [[ "$(grep -wc ${callback_query_from_username} $ativos)" != '0' ]] && {
         ShellBot.editMessageText --chat_id ${callback_query_message_chat_id[$id]} \
             --message_id ${callback_query_message_message_id[$id]} \
