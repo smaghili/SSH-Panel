@@ -24,11 +24,6 @@ fun_menu() {
             --parse_mode html
         return 0
     }
-    [[ -d /etc/bot/suspensos/${message_from_username} ]] && {
-        ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-            --text "$(echo -e "🚫 YOU ARE SUSPENDED 🚫\n\nCONTACT THE ADMINISTRATOR")"
-        return 0
-    }
     if [[ "$(grep -w "${message_from_username}" $ativos | grep -wc 'revenda')" != '0' ]]; then
         local env_msg
         env_msg="<b>◈──────────────────◈</b>\n"
@@ -97,12 +92,6 @@ fun_ajuda() {
             --parse_mode html
 	ShellBot.sendMessage --chat_id $id_chatuser \
             --text "$(echo -e ✅ All Tutorials , Updates : @HamshahriSShPanel)"
-        return 0
-    elif [[ -d /etc/bot/suspensos/$id_name ]]; then
-        ShellBot.sendMessage --chat_id $id_chatuser \
-            --text "$(echo -e "🚫 YOU ARE SUSPENDED 🚫\n\nCONTACT THE ADMINISTRATOR")"
-	ShellBot.sendSticker --chat_id $id_chatuser \
-            --sticker "CAACAgEAAxkBAAEDbIdhrlBIJ-fUNJHXn-g352lK26WtBQACYgEAAgkeUEUw-f8AAZo7VDciBA"
         return 0
     elif [[ "$(grep -w "$id_name" $ativos | awk '{print $NF}')" == 'revenda' ]]; then
         local env_msg
